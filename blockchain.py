@@ -2,6 +2,7 @@ import hashlib
 import json
 from time import time
 import requests
+from urllib.parse import urlparse
 
 class Blockchain(object):
     def __init__(self):
