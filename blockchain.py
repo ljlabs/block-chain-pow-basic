@@ -122,6 +122,7 @@ class Blockchain(object):
 
         while current_index < len(chain):
             block = chain[current_index]
+            last_hash = self.hash(last_block)
             print(str(last_block))
             print(str(block))
             print("\n-----------\n")
@@ -130,7 +131,7 @@ class Blockchain(object):
                 return False
 
             # Check that the Proof of Work is correct
-            if not self.valid_proof(last_block['proof'], block['proof']):
+            if not self.valid_proof(last_block['proof'], last_hash, block['proof']):
                 return False
 
             last_block = block
