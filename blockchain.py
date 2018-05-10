@@ -153,7 +153,7 @@ class Blockchain(object):
 
         # Grab and verify the chains from all the nodes in our network
         for node in neighbours:
-            response = requests.get("http://"+str(node) + "/" + str(chain))
+            response = requests.get("http://"+str(node) + "/chain")
 
             if response.status_code == 200:
                 length = response.json()['length']
